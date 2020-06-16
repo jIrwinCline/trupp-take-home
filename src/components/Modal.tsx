@@ -38,11 +38,20 @@ interface Props {
 }
 
 export default function Modal({ data }: Props): ReactElement {
-  const [open, setOpen] = React.useState(false);
-  const [gender, setGender] = React.useState(
-    data.genderDescription.toLowerCase()
+  const [open, setOpen] = useState(false);
+  const [gender, setGender] = useState(data.genderDescription.toLowerCase());
+  const [fullName, setFullName] = useState(data.contactName);
+  const [social, setSocial] = useState(data.maskedSocialSecurity);
+  const [birthDate, setBirthDate] = useState(
+    data.dateOfBirth.toLocaleString("default", {
+      month: "long",
+      day: "numeric",
+      year: "numeric",
+    })
   );
-
+  const [address, setAddress] = useState(data.streetAddress);
+  const [personalEmail, setPersonalEmail] = useState(data.personalEmail);
+  const [mobilePhone, setMobilePhone] = useState(data.mobilePhone);
   const handleOpen = (): void => {
     setOpen(true);
   };
@@ -109,11 +118,7 @@ export default function Modal({ data }: Props): ReactElement {
                   label="Birthday"
                   margin="dense"
                   id="text"
-                  defaultValue={data.dateOfBirth.toLocaleString("default", {
-                    month: "long",
-                    day: "numeric",
-                    year: "numeric",
-                  })}
+                  defaultValue={birthDate}
                   type="text"
                   fullWidth
                 />
