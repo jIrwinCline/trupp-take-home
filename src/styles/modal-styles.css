@@ -61,6 +61,11 @@
   font-size: 28px !important;
   color: rgb(117, 117, 117);
 }
+.right-icon {
+  padding: 22px 0 0 15px;
+  font-size: 28px !important;
+  color: rgb(117, 117, 117);
+}
 .icon-spacer {
   padding: 26px 0 2px 30px;
   height: 26px;

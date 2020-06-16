@@ -193,7 +193,9 @@ export default function Modal({ data }: Props): ReactElement {
                 </FormControl>
               </div>
             </Grid>
-            <Grid item xs={1}></Grid>
+            <Grid item xs={1}>
+              <AddCircleOutlineIcon color="primary" className="right-icon" />
+            </Grid>
           </Grid>
           <SectionTitle text="Contact Info" upcase />
           <Grid container>
@@ -264,7 +266,12 @@ export default function Modal({ data }: Props): ReactElement {
                 </div>
               </div>
             </Grid>
-            <Grid item xs={1}></Grid>
+            <Grid item xs={1}>
+              <Grid item xs={1}>
+                <AddCircleOutlineIcon color="primary" className="right-icon" />
+                <AddCircleOutlineIcon color="primary" className="right-icon" />
+              </Grid>
+            </Grid>
           </Grid>
           <SectionTitle
             text="Legal Info"
