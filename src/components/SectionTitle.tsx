@@ -1,4 +1,5 @@
 import React, { ReactElement } from "react";
+import "../styles/section-title-styles.css";
 
 interface Props {
   text: String;
@@ -7,5 +8,10 @@ interface Props {
 
 export default function SectionTitle({ text, upcase }: Props): ReactElement {
   const title = upcase ? text.toUpperCase() : text;
-  return <div className="section-title">{title}</div>;
+  return (
+    <div>
+      <p className="section-title">{title}</p>
+      <hr className="line" />
+    </div>
+  );
 }

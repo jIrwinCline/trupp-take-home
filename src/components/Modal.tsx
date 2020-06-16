@@ -35,6 +35,7 @@ export default function Modal({}: Props): ReactElement {
         Edit Details
       </Button>
       <Dialog
+        fullWidth
         open={open}
         onClose={handleClose}
         aria-labelledby="form-dialog-title"
