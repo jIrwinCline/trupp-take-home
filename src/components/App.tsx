@@ -1,7 +1,7 @@
 import React from "react";
 import "../styles/App.css";
 
-//components
+//Pages
 import ProfilePage from "../pages/profilePage";
 
 function App() {

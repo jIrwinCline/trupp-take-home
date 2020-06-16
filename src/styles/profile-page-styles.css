@@ -1,7 +1,3 @@
 h1.center {
   text-align: center;
 }
-button.center {
-  margin-left: 50%;
-  transform: translateX(-50%);
-}
