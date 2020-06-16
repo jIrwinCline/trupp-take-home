@@ -1,5 +1,6 @@
 import React, { ReactElement, useState } from "react";
 import "../styles/modal-styles.css";
+import ReactDOM from "react-dom";
 
 //MUI
 import Button from "@material-ui/core/Button";
@@ -133,11 +134,14 @@ export default function Modal({ data }: Props): ReactElement {
     });
     setOpen(false);
   };
+
   return (
     <div className="center-btn">
-      <Button variant="outlined" onClick={handleOpen}>
-        Edit Details
-      </Button>
+      <a style={{ textDecoration: "none" }} href="#top">
+        <Button variant="outlined" onClick={handleOpen}>
+          Edit Details
+        </Button>
+      </a>
       <Dialog
         fullWidth
         maxWidth="md"
@@ -151,6 +155,7 @@ export default function Modal({ data }: Props): ReactElement {
         </DialogTitle>
         <MuiDivider />
         <DialogContent>
+          <div id="top" />
           <SectionTitle text="Basic Info" upcase />
           <Grid container>
             <Grid item xs={1}>

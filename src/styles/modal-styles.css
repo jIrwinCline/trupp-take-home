@@ -35,13 +35,16 @@
 .half-field-container {
   width: 1350px !important;
 }
+
 #address-select {
-  min-width: 650px !important;
+  display: flex;
+  position: relative;
+  min-width: 70.5vh !important;
   margin-top: 5px;
 }
-@media screen and (max-width: 1000px) {
+@media screen and (min-width: 1000px) {
   #address-select {
-    min-width: 600px !important;
+    width: 75vh !important;
     margin-top: 5px;
   }
 }
