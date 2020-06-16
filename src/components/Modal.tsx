@@ -115,6 +115,24 @@ export default function Modal({ data }: Props): ReactElement {
   const handleClose = (): void => {
     setOpen(false);
   };
+
+  const handleSave = (): void => {
+    setUserState({
+      gender,
+      contactName,
+      fullName,
+      preferredName,
+      social,
+      birthDate,
+      address,
+      personalEmail,
+      mobilePhone,
+      addressType,
+      emailType,
+      phoneType,
+    });
+    setOpen(false);
+  };
   return (
     <div className="center-btn">
       <Button variant="outlined" onClick={handleOpen}>
@@ -415,7 +433,7 @@ export default function Modal({ data }: Props): ReactElement {
                   <RadioGroup
                     aria-label="gender"
                     name="gender1"
-                    value={userState.gender}
+                    value={gender}
                     onChange={(e): void => {
                       setGender(e.target.value);
                     }}
@@ -447,7 +465,7 @@ export default function Modal({ data }: Props): ReactElement {
           <Button onClick={handleClose} color="primary">
             Cancel
           </Button>
-          <Button onClick={handleClose} color="primary">
+          <Button onClick={handleSave} color="primary">
             Save
           </Button>
         </DialogActions>
