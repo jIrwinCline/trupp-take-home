@@ -310,7 +310,7 @@ export default function Modal({ data }: Props): ReactElement {
                   <InputLabel id="select-label">Address Type</InputLabel>
                   <Select
                     id="address-select"
-                    value={userState.addressType}
+                    value={addressType}
                     // input={<BootstrapInput />}
                   >
                     <MenuItem
@@ -362,7 +362,7 @@ export default function Modal({ data }: Props): ReactElement {
                         <InputLabel id="select-label"></InputLabel>
                         <Select
                           id="email-select"
-                          value={userState.emailType}
+                          value={emailType}
                           // onChange={handleChange}
                           // input={<BootstrapInput />}
                         >
@@ -407,7 +407,7 @@ export default function Modal({ data }: Props): ReactElement {
                         <InputLabel id="select-label"></InputLabel>
                         <Select
                           id="phone-select"
-                          value={userState.phoneType}
+                          value={phoneType}
                           // onChange={handleChange}
                           // input={<BootstrapInput />}
                         >
