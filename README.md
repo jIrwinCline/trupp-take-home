@@ -1,7 +1,7 @@
 # Trupp HR Frontend Excersise
 
 Thank you for the fun little problem and I hope to hear back from your team!
-(Hosted Here!)[!https://5ee91e5edbbcda02381ad19d--amazing-heisenberg-26dcf6.netlify.app/]
+(https://5ee91e5edbbcda02381ad19d--amazing-heisenberg-26dcf6.netlify.app/)[Hosted Here!]
 
 ## Project completely developed in _Typescript_ and the _React Library_.
 
