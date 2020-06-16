@@ -1,44 +1,19 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Trupp HR Frontend Excersise
 
-## Available Scripts
+Thank you for the fun little problem and I hope to hear back from your team!
 
-In the project directory, you can run:
+## Project completely developed in _Typescript_ and the _React Library_.
 
-### `yarn start`
+## Thought Process on structure and what I would do differently.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+I decided to tackle the project in Typescript and React. Since I'm more familiar with React and wanted to show how fast I could effectively complete the project, but still used TypeScript since I know this is what Trupp uses in their front end with Angular.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+I used CSS styling since for simplicity, and I didn't want to use react specific styling (like styled components or MUI MakeStyles) since Trupp's stack likely uses either css or sass files.
 
-### `yarn test`
+I set the project up with a pages (sometimes called containers) and componenets directory. I would have liked to have further brok down the components, but ultimately it was a small project and I didn't think it was necessary. Though, if new pages were added to the app eventually, it would be easy to start adding them to the /pages directory and adding some app routing.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+I included one custom reusable component for the unique section titles in the modal. This just shows I can think in a component mindset and dry up code when appropriate. Other areas I could have done this would have been like buttons, inputs, drop downs, etc.
 
-### `yarn build`
+## Current Bugs
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+On the Radio button selection, canceling or exiting the modal will still result in the gender changing state.
