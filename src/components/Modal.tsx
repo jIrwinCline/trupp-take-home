@@ -119,24 +119,24 @@ export default function Modal({}: Props): ReactElement {
                   type="email"
                   fullWidth
                 />
-                <div className="half-field-container">
-                  <TextField
-                    autoFocus
-                    label="State"
-                    margin="dense"
-                    id="name"
-                    type="email"
-                    className="half-field-left"
-                  />
-                  <TextField
-                    autoFocus
-                    label="Zip Code"
-                    margin="dense"
-                    id="name"
-                    type="email"
-                    className="half-field-right"
-                  />
-                </div>
+
+                <TextField
+                  autoFocus
+                  label="State"
+                  margin="dense"
+                  id="name"
+                  type="email"
+                  className="half-field-left"
+                />
+                <TextField
+                  autoFocus
+                  label="Zip Code"
+                  margin="dense"
+                  id="name"
+                  type="email"
+                  className="half-field-right"
+                />
+
                 <FormControl className="margin">
                   <InputLabel id="select-label">Address Type</InputLabel>
                   <Select
@@ -158,6 +158,69 @@ export default function Modal({}: Props): ReactElement {
             </Grid>
             <Grid item xs={1}></Grid>
           </Grid>
+          <SectionTitle text="Contact Info" upcase />
+          <Grid container>
+            <Grid item xs={1}></Grid>
+            <Grid item xs={10}>
+              <div className="input-container">
+                <div className="half-field-container">
+                  <Grid container>
+                    <Grid className="half-field-container" item xs={6}>
+                      <TextField
+                        // autoFocus
+                        label="Email Address"
+                        margin="dense"
+                        id="email"
+                        type="email"
+                        className="half-field-left"
+                      />
+                    </Grid>
+                    <Grid item xs={6}>
+                      <FormControl className="half-field-right">
+                        <InputLabel id="select-label">Address Type</InputLabel>
+                        <Select
+                          id="address-select"
+                          value={addressType}
+                          // onChange={handleChange}
+                          // input={<BootstrapInput />}
+                        >
+                          <MenuItem value="">
+                            <em>None</em>
+                          </MenuItem>
+                          <MenuItem value={"Street Address"}>
+                            Street Address
+                          </MenuItem>
+                          <MenuItem value={"Apartment Address"}>
+                            Apartment Address
+                          </MenuItem>
+                        </Select>
+                      </FormControl>
+                    </Grid>
+                  </Grid>
+                  {/* </div> */}
+                </div>
+
+                <TextField
+                  autoFocus
+                  label="Phone"
+                  margin="dense"
+                  id="name"
+                  type="email"
+                  className="half-field-left"
+                />
+                <TextField
+                  autoFocus
+                  label="Zip Code"
+                  margin="dense"
+                  id="name"
+                  type="email"
+                  className="half-field-right"
+                />
+              </div>
+            </Grid>
+            <Grid item xs={1}></Grid>
+          </Grid>
+          <SectionTitle text="Legal Info" upcase />
         </DialogContent>
         <hr className="action-hr" />
         <DialogActions>

@@ -20,7 +20,7 @@
   position: relative !important;
 }
 .half-field-left {
-  width: 46%;
+  min-width: 46% !important;
 }
 .half-field-right {
   width: 46%;
@@ -28,6 +28,7 @@
   right: 0px !important;
 }
 .half-field-container {
+  width: 1350px !important;
   /* text-align: center; */
   /* display: flex !important; */
   /* justify-self: space-between !important; */
