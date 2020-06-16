@@ -123,7 +123,9 @@ export default function Modal({ data }: Props): ReactElement {
           </Grid>
           <SectionTitle text="Addresses" upcase />
           <Grid container>
-            <Grid item xs={1}></Grid>
+            <Grid item xs={1}>
+              <LocationOnIcon className="left-icon" />
+            </Grid>
             <Grid item xs={10}>
               <div className="input-container">
                 <TextField
@@ -195,7 +197,10 @@ export default function Modal({ data }: Props): ReactElement {
           </Grid>
           <SectionTitle text="Contact Info" upcase />
           <Grid container>
-            <Grid item xs={1}></Grid>
+            <Grid item xs={1}>
+              <EmailIcon className="left-icon" />
+              <PhoneIcon className="left-icon" />
+            </Grid>
             <Grid item xs={10}>
               <div className="input-container">
                 <div className="half-field-container">
@@ -261,10 +266,16 @@ export default function Modal({ data }: Props): ReactElement {
             </Grid>
             <Grid item xs={1}></Grid>
           </Grid>
-          <SectionTitle text="Legal Info" upcase />
+          <SectionTitle
+            text="Legal Info"
+            style={{ paddingBottom: "8px" }}
+            upcase
+          />
           <br />
           <Grid container>
-            <Grid item xs={1}></Grid>
+            <Grid item xs={1}>
+              <WcIcon className="gender-icon" />
+            </Grid>
             <Grid item xs={10}>
               <div className="input-container">
                 <FormControl component="fieldset">

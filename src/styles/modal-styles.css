@@ -11,7 +11,7 @@
 }
 .input-container {
   font-size: 19px !important;
-  max-width: 90%;
+  max-width: 97%;
   left: 50% !important;
   transform: translateX(-50%);
   position: relative !important;
@@ -57,12 +57,18 @@
   border-color: rgba(255, 255, 255, 0.466);
 }
 .left-icon {
-  padding: 26px 0 2px 30px;
-  font-size: 26px !important;
+  padding: 24px 0 2px 15px;
+  font-size: 28px !important;
   color: rgb(117, 117, 117);
 }
 .icon-spacer {
   padding: 26px 0 2px 30px;
   height: 26px;
   /* font-size: 26px !important; */
+}
+.gender-icon {
+  padding: 0px 0 2px 15px;
+  margin-top: -6px;
+  font-size: 28px !important;
+  color: rgb(117, 117, 117);
 }
