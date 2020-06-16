@@ -59,83 +59,127 @@ interface UserStateInterface {
   phoneType: null | String;
 }
 
+interface State {
+  open: boolean;
+  show: boolean;
+  gender: String;
+  contactName: String;
+  fullName: String;
+  preferredName: String;
+  social: String;
+  birthDate: Object;
+  address: Object;
+  personalEmail: String;
+  mobilePhone: String;
+  addressType: String;
+  emailType: String;
+  phoneType: String;
+}
+
 interface Props {
   data: EmployeeDetails;
 }
 
 export default function Modal({ data }: Props): ReactElement {
-  const [open, setOpen] = useState<boolean>(false);
-  const [show, setShow] = useState(false);
-
-  const [gender, setGender] = useState<null | String>(
-    data.genderDescription.toLowerCase()
-  );
-  const [contactName] = useState<null | String>(data.contactName);
-  const [fullName, setFullName] = useState<null | String>("Caroline Conway");
-  const [preferredName, setPreferredName] = useState<null | String>(
-    data.contactName.split(" ")[0]
-  );
-  const [social, setSocial] = useState<null | String>(
-    data.maskedSocialSecurity
-  );
-  const [birthDate, setBirthDate] = useState<any>(
-    data.dateOfBirth.toLocaleString("default", {
+  const [state, setState] = useState({
+    open: true,
+    show: false,
+    gender: data.genderDescription.toLowerCase(),
+    contactName: data.contactName,
+    fullName: "Caroline Conway",
+    preferredName: data.contactName.split(" ")[0],
+    social: data.maskedSocialSecurity,
+    birthDate: data.dateOfBirth.toLocaleString("default", {
       month: "long",
       day: "numeric",
       year: "numeric",
-    })
-  );
-  const [address, setAddress] = useState<any>(data.streetAddress);
-  const [personalEmail, setPersonalEmail] = useState<null | String>(
-    data.personalEmail
-  );
-  const [mobilePhone, setMobilePhone] = useState<null | String>(
-    data.mobilePhone
-  );
-  const [addressType, setAddressType] = useState<null | String>(
-    "Street Address"
-  );
-  const [emailType, setEmailType] = useState<null | String>("Personal");
-  const [phoneType, setPhoneType] = useState<null | String>("Mobile");
+    }),
+    address: data.streetAddress,
+    personalEmail: data.personalEmail,
+    mobilePhone: data.mobilePhone,
+    addressType: "Street Address",
+    emailType: "Personal",
+    phoneType: "mobile",
+  });
+  // const [open, setOpen] = useState<boolean>(false);
+  // const [show, setShow] = useState(false);
+
+  // const [gender, setGender] = useState<null | String>(
+  //   data.genderDescription.toLowerCase()
+  // );
+  // const [contactName] = useState<null | String>(data.contactName);
+  // const [fullName, setFullName] = useState<null | String>("Caroline Conway");
+  // const [preferredName, setPreferredName] = useState<null | String>(
+  //   data.contactName.split(" ")[0]
+  // );
+  // const [social, setSocial] = useState<null | String>(
+  //   data.maskedSocialSecurity
+  // );
+  // const [birthDate, setBirthDate] = useState<any>(
+  //   data.dateOfBirth.toLocaleString("default", {
+  //     month: "long",
+  //     day: "numeric",
+  //     year: "numeric",
+  //   })
+  // );
+  // const [address, setAddress] = useState<any>(data.streetAddress);
+  // const [personalEmail, setPersonalEmail] = useState<null | String>(
+  //   data.personalEmail
+  // );
+  // const [mobilePhone, setMobilePhone] = useState<null | String>(
+  //   data.mobilePhone
+  // );
+  // const [addressType, setAddressType] = useState<null | String>(
+  //   "Street Address"
+  // );
+  // const [emailType, setEmailType] = useState<null | String>("Personal");
+  // const [phoneType, setPhoneType] = useState<null | String>("Mobile");
+
   const [userState, setUserState] = useState<UserStateInterface>({
-    gender,
-    contactName,
-    fullName,
-    preferredName,
-    social,
-    birthDate,
-    address,
-    personalEmail,
-    mobilePhone,
-    addressType,
-    emailType,
-    phoneType,
+    gender: state.gender,
+    contactName: state.contactName,
+    fullName: state.fullName,
+    preferredName: state.preferredName,
+    social: state.social,
+    birthDate: state.birthDate,
+    address: state.address,
+    personalEmail: state.personalEmail,
+    mobilePhone: state.mobilePhone,
+    addressType: state.addressType,
+    emailType: state.emailType,
+    phoneType: state.phoneType,
   });
 
-  const handleOpen = (): void => {
-    setOpen(true);
+  const handleOpen = (prop: keyof State) => (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setState({ ...state, [prop]: event.target.value });
   };
 
-  const handleClose = (): void => {
-    setOpen(false);
+  const handleClose = (prop: keyof State) => (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setState({ ...state, [prop]: event.target.value });
   };
 
-  const handleSave = (): void => {
+  const handleSave = (prop: keyof State) => (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
     setUserState({
-      gender,
-      contactName,
-      fullName,
-      preferredName,
-      social,
-      birthDate,
-      address,
-      personalEmail,
-      mobilePhone,
-      addressType,
-      emailType,
-      phoneType,
+      gender: state.gender,
+      contactName: state.contactName,
+      fullName: state.fullName,
+      preferredName: state.preferredName,
+      social: state.social,
+      birthDate: state.birthDate,
+      address: state.address,
+      personalEmail: state.personalEmail,
+      mobilePhone: state.mobilePhone,
+      addressType: state.addressType,
+      emailType: state.emailType,
+      phoneType: state.phoneType,
     });
-    setOpen(false);
+    setState({ ...state, [prop]: event.target.value });
   };
 
   return (
@@ -155,7 +199,7 @@ export default function Modal({ data }: Props): ReactElement {
       <Dialog
         fullWidth
         maxWidth="md"
-        open={open}
+        open={state.open}
         onClose={handleClose}
         aria-labelledby="form-dialog-title"
         className="modal-container"
