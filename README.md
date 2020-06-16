@@ -18,4 +18,8 @@ I included one custom reusable component for the unique section titles in the mo
 
 On the Radio button selection, canceling or exiting the modal will still result in the gender changing state.
 
+## Other Notes
+
+I had a lot of useState hooks that ended up looking pretty messy. But it works. I did try and clean up the Modal component in Branch: "consolodating-state" where I attempted to lump all my state into one useState hook. I think it would have looked a lot nicer, and you're welcome to check the branch to see where I was going with it, but I hit some typescript errors("No overload matches this call.") and so I decided to end my work on the previously working branch, even though it was a bit messier.
+
 _- Jacob_
