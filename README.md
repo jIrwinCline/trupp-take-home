@@ -17,3 +17,5 @@ I included one custom reusable component for the unique section titles in the mo
 ## Current Bugs
 
 On the Radio button selection, canceling or exiting the modal will still result in the gender changing state.
+
+_- Jacob_
