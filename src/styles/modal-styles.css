@@ -33,8 +33,14 @@
   /* justify-self: space-between !important; */
 }
 #address-select {
-  min-width: 610px !important;
+  min-width: 650px !important;
   margin-top: 5px;
+}
+@media screen and (max-width: 1000px) {
+  #address-select {
+    min-width: 600px !important;
+    margin-top: 5px;
+  }
 }
 #select-label {
   margin-top: 10px;
