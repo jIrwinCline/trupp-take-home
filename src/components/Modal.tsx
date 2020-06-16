@@ -11,17 +11,21 @@ import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
+import MuiDivider from "@material-ui/core/Divider";
+
+//Components
+import SectionTitle from "./SectionTitle";
 
 interface Props {}
 
 export default function Modal({}: Props): ReactElement {
   const [open, setOpen] = React.useState(false);
 
-  const handleOpen = () => {
+  const handleOpen = (): void => {
     setOpen(true);
   };
 
-  const handleClose = () => {
+  const handleClose = (): void => {
     setOpen(false);
   };
 
@@ -35,8 +39,10 @@ export default function Modal({}: Props): ReactElement {
         onClose={handleClose}
         aria-labelledby="form-dialog-title"
       >
-        <DialogTitle id="form-dialog-title">title</DialogTitle>
+        <DialogTitle id="form-dialog-title">Carrie Conway</DialogTitle>
+        <MuiDivider />
         <DialogContent>
+          <SectionTitle text="Basic Info" upcase />
           <DialogContentText>blah blah blah</DialogContentText>
           <TextField
             autoFocus
