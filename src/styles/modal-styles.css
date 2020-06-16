@@ -27,6 +27,13 @@
   position: absolute !important;
   right: 0px !important;
 }
+.MuiDialogContent-root {
+  overflow-x: hidden;
+}
+
+.MuiDialogContent-root::-webkit-scrollbar {
+  display: none;
+}
 .half-field-container {
   width: 1350px !important;
   /* text-align: center; */

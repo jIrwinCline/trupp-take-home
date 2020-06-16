@@ -16,6 +16,10 @@ import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
+import Radio from "@material-ui/core/Radio";
+import RadioGroup from "@material-ui/core/RadioGroup";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import FormLabel from "@material-ui/core/FormLabel";
 
 //Components
 import SectionTitle from "./SectionTitle";
@@ -44,12 +48,12 @@ export default function Modal({}: Props): ReactElement {
         open={open}
         onClose={handleClose}
         aria-labelledby="form-dialog-title"
+        className="modal-container"
       >
         <DialogTitle id="form-dialog-title">Carrie Conway</DialogTitle>
         <MuiDivider />
         <DialogContent>
           <SectionTitle text="Basic Info" upcase />
-          {/* <DialogContentText>blah blah blah</DialogContentText> */}
           <Grid container>
             <Grid item xs={1}></Grid>
             <Grid item xs={10}>
@@ -177,16 +181,41 @@ export default function Modal({}: Props): ReactElement {
                     </Grid>
                     <Grid item xs={6}>
                       <FormControl className="half-field-right">
-                        <InputLabel id="select-label">Address Type</InputLabel>
+                        <InputLabel id="select-label"></InputLabel>
+                        <Select
+                          id="address-select"
+                          value={"Personal"}
+                          // onChange={handleChange}
+                          // input={<BootstrapInput />}
+                        >
+                          <MenuItem value={"Personal"}>Personal</MenuItem>
+                          <MenuItem value={"Business"}>Business</MenuItem>
+                        </Select>
+                      </FormControl>
+                    </Grid>
+                  </Grid>
+                </div>
+                <div className="half-field-container">
+                  <Grid container>
+                    <Grid className="half-field-container" item xs={6}>
+                      <TextField
+                        // autoFocus
+                        label="Phone"
+                        margin="dense"
+                        id="email"
+                        type="email"
+                        className="half-field-left"
+                      />
+                    </Grid>
+                    <Grid item xs={6}>
+                      <FormControl className="half-field-right">
+                        <InputLabel id="select-label"></InputLabel>
                         <Select
                           id="address-select"
                           value={addressType}
                           // onChange={handleChange}
                           // input={<BootstrapInput />}
                         >
-                          <MenuItem value="">
-                            <em>None</em>
-                          </MenuItem>
                           <MenuItem value={"Street Address"}>
                             Street Address
                           </MenuItem>
@@ -199,28 +228,45 @@ export default function Modal({}: Props): ReactElement {
                   </Grid>
                   {/* </div> */}
                 </div>
-
-                <TextField
-                  autoFocus
-                  label="Phone"
-                  margin="dense"
-                  id="name"
-                  type="email"
-                  className="half-field-left"
-                />
-                <TextField
-                  autoFocus
-                  label="Zip Code"
-                  margin="dense"
-                  id="name"
-                  type="email"
-                  className="half-field-right"
-                />
               </div>
             </Grid>
             <Grid item xs={1}></Grid>
           </Grid>
           <SectionTitle text="Legal Info" upcase />
+          <br />
+          <Grid container>
+            <Grid item xs={1}></Grid>
+            <Grid item xs={10}>
+              <div className="input-container">
+                <FormControl component="fieldset">
+                  <FormLabel component="legend">Legal Gender</FormLabel>
+                  <RadioGroup
+                    aria-label="gender"
+                    name="gender1"
+                    value={null}
+                    // onChange={handleChange}
+                  >
+                    <FormControlLabel
+                      value="male"
+                      control={<Radio />}
+                      label="Male"
+                    />
+                    <FormControlLabel
+                      value="female"
+                      control={<Radio />}
+                      label="Female"
+                    />
+                    {/* <FormControlLabel
+                      value="other"
+                      control={<Radio />}
+                      label="Other"
+                    /> */}
+                  </RadioGroup>
+                </FormControl>
+              </div>
+            </Grid>
+            <Grid item xs={1}></Grid>
+          </Grid>
         </DialogContent>
         <hr className="action-hr" />
         <DialogActions>
