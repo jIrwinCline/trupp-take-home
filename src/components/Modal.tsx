@@ -18,7 +18,15 @@ import Radio from "@material-ui/core/Radio";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import FormLabel from "@material-ui/core/FormLabel";
-
+//MUI Icons
+import EmailIcon from "@material-ui/icons/Email";
+import PhoneIcon from "@material-ui/icons/Phone";
+import WcIcon from "@material-ui/icons/Wc";
+import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
+import CakeIcon from "@material-ui/icons/Cake";
+import LocationOnIcon from "@material-ui/icons/LocationOn";
+import PersonIcon from "@material-ui/icons/Person";
+import CreditCardIcon from "@material-ui/icons/CreditCard";
 //Components
 import SectionTitle from "./SectionTitle";
 
@@ -61,7 +69,12 @@ export default function Modal({ data }: Props): ReactElement {
         <DialogContent>
           <SectionTitle text="Basic Info" upcase />
           <Grid container>
-            <Grid item xs={1}></Grid>
+            <Grid item xs={1}>
+              <PersonIcon className="left-icon" />{" "}
+              <div className="icon-spacer" />
+              <CreditCardIcon className="left-icon" />{" "}
+              <CakeIcon className="left-icon" />{" "}
+            </Grid>
             <Grid item xs={10}>
               <div className="input-container">
                 <TextField
