@@ -9,9 +9,9 @@ import TextField from "@material-ui/core/TextField";
 import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
-import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import MuiDivider from "@material-ui/core/Divider";
+import Grid from "@material-ui/core/Grid";
 
 //Components
 import SectionTitle from "./SectionTitle";
@@ -36,6 +36,7 @@ export default function Modal({}: Props): ReactElement {
       </Button>
       <Dialog
         fullWidth
+        maxWidth="md"
         open={open}
         onClose={handleClose}
         aria-labelledby="form-dialog-title"
@@ -44,15 +45,98 @@ export default function Modal({}: Props): ReactElement {
         <MuiDivider />
         <DialogContent>
           <SectionTitle text="Basic Info" upcase />
-          <DialogContentText>blah blah blah</DialogContentText>
-          <TextField
-            autoFocus
-            margin="dense"
-            id="name"
-            label="Email Address"
-            type="email"
-            fullWidth
-          />
+          {/* <DialogContentText>blah blah blah</DialogContentText> */}
+          <Grid container>
+            <Grid item xs={1}></Grid>
+            <Grid item xs={10}>
+              <div className="input-container">
+                <TextField
+                  autoFocus
+                  label="Full Name"
+                  margin="dense"
+                  id="fullName"
+                  type="email"
+                  fullWidth
+                />
+                <TextField
+                  autoFocus
+                  label="Preferred First Name"
+                  margin="dense"
+                  id="firstName"
+                  type="email"
+                  fullWidth
+                />
+                <TextField
+                  autoFocus
+                  label="Social Security Number"
+                  margin="dense"
+                  id="name"
+                  type="email"
+                  fullWidth
+                />
+                <TextField
+                  autoFocus
+                  label="Birthday"
+                  margin="dense"
+                  id="name"
+                  type="email"
+                  fullWidth
+                />
+              </div>
+            </Grid>
+            <Grid item xs={1}></Grid>
+          </Grid>
+          <SectionTitle text="Addresses" upcase />
+          <Grid container>
+            <Grid item xs={1}></Grid>
+            <Grid item xs={10}>
+              <div className="input-container">
+                <TextField
+                  autoFocus
+                  label="Street Address 1"
+                  margin="dense"
+                  id="name"
+                  type="email"
+                  fullWidth
+                />
+                <TextField
+                  autoFocus
+                  label="Street Address 2"
+                  margin="dense"
+                  id="name"
+                  type="email"
+                  fullWidth
+                />
+                <TextField
+                  autoFocus
+                  label="City"
+                  margin="dense"
+                  id="name"
+                  type="email"
+                  fullWidth
+                />
+                <div className="half-field-container">
+                  <TextField
+                    autoFocus
+                    label="State"
+                    margin="dense"
+                    id="name"
+                    type="email"
+                    className="half-field-left"
+                  />
+                  <TextField
+                    autoFocus
+                    label="Zip Code"
+                    margin="dense"
+                    id="name"
+                    type="email"
+                    className="half-field-right"
+                  />
+                </div>
+              </div>
+            </Grid>
+            <Grid item xs={1}></Grid>
+          </Grid>
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose} color="primary">

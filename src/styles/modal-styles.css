@@ -4,8 +4,31 @@
   transform: translateX(-50%);
 }
 #form-dialog-title {
-  height: 24px;
+  height: 30px;
 }
-.MuiDialog-root {
+#form-dialog-title * {
+  font-size: 25px;
+}
+/* .MuiDialog-root {
   min-width: 900px !important;
+} */
+.input-container {
+  font-size: 19px !important;
+  max-width: 90%;
+  left: 50% !important;
+  transform: translateX(-50%);
+  position: relative !important;
+}
+.half-field-left {
+  width: 46%;
+}
+.half-field-right {
+  width: 46%;
+  position: absolute !important;
+  right: 0px !important;
+}
+.half-field-container {
+  /* text-align: center; */
+  /* display: flex !important; */
+  /* justify-self: space-between !important; */
 }
