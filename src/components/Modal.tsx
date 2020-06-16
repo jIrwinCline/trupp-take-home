@@ -12,6 +12,10 @@ import DialogContent from "@material-ui/core/DialogContent";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import MuiDivider from "@material-ui/core/Divider";
 import Grid from "@material-ui/core/Grid";
+import InputLabel from "@material-ui/core/InputLabel";
+import MenuItem from "@material-ui/core/MenuItem";
+import FormControl from "@material-ui/core/FormControl";
+import Select from "@material-ui/core/Select";
 
 //Components
 import SectionTitle from "./SectionTitle";
@@ -28,7 +32,7 @@ export default function Modal({}: Props): ReactElement {
   const handleClose = (): void => {
     setOpen(false);
   };
-
+  const addressType = "Street Address";
   return (
     <div className="center-btn">
       <Button variant="outlined" onClick={handleOpen}>
@@ -133,11 +137,29 @@ export default function Modal({}: Props): ReactElement {
                     className="half-field-right"
                   />
                 </div>
+                <FormControl className="margin">
+                  <InputLabel id="select-label">Address Type</InputLabel>
+                  <Select
+                    id="address-select"
+                    value={addressType}
+                    // onChange={handleChange}
+                    // input={<BootstrapInput />}
+                  >
+                    <MenuItem value="">
+                      <em>None</em>
+                    </MenuItem>
+                    <MenuItem value={"Street Address"}>Street Address</MenuItem>
+                    <MenuItem value={"Apartment Address"}>
+                      Apartment Address
+                    </MenuItem>
+                  </Select>
+                </FormControl>
               </div>
             </Grid>
             <Grid item xs={1}></Grid>
           </Grid>
         </DialogContent>
+        <hr className="action-hr" />
         <DialogActions>
           <Button onClick={handleClose} color="primary">
             Cancel

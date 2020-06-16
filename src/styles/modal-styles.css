@@ -32,3 +32,18 @@
   /* display: flex !important; */
   /* justify-self: space-between !important; */
 }
+#address-select {
+  min-width: 610px !important;
+  margin-top: 5px;
+}
+#select-label {
+  margin-top: 10px;
+}
+.action-hr {
+  width: 250px;
+  position: relative;
+  margin-top: 30px;
+  margin-bottom: -4px;
+  margin-right: 0px;
+  border-color: rgba(255, 255, 255, 0.466);
+}
