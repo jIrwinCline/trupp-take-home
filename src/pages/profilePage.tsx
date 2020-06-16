@@ -6,7 +6,8 @@ interface Props {}
 export default function profilePage({}: Props): ReactElement {
   return (
     <div>
-      <h1 className="header">My User Profile</h1>
+      <h1 className="center">My User Profile</h1>
+      <button className="center">Edit Details</button>
     </div>
   );
 }
