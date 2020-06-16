@@ -6,9 +6,7 @@ import { EMPLOYEEDETAILS_MOCK as userData } from "../data/mock";
 //Components
 import Modal from "../components/Modal";
 
-interface Props {}
-
-export default function profilePage({}: Props): ReactElement {
+export default function profilePage(): ReactElement {
   return (
     <div>
       <h1 className="center">My User Profile</h1>

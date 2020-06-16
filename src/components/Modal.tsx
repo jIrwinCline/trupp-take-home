@@ -1,6 +1,5 @@
 import React, { ReactElement, useState } from "react";
 import "../styles/modal-styles.css";
-import ReactDOM from "react-dom";
 
 //MUI
 import Button from "@material-ui/core/Button";
@@ -19,6 +18,9 @@ import Radio from "@material-ui/core/Radio";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import FormLabel from "@material-ui/core/FormLabel";
+import Input from "@material-ui/core/Input";
+import InputAdornment from "@material-ui/core/InputAdornment";
+import IconButton from "@material-ui/core/IconButton";
 //MUI Icons
 import EmailIcon from "@material-ui/icons/Email";
 import PhoneIcon from "@material-ui/icons/Phone";
@@ -28,6 +30,8 @@ import CakeIcon from "@material-ui/icons/Cake";
 import LocationOnIcon from "@material-ui/icons/LocationOn";
 import PersonIcon from "@material-ui/icons/Person";
 import CreditCardIcon from "@material-ui/icons/CreditCard";
+import Visibility from "@material-ui/icons/Visibility";
+import VisibilityOff from "@material-ui/icons/VisibilityOff";
 //Components
 import SectionTitle from "./SectionTitle";
 
@@ -61,13 +65,12 @@ interface Props {
 
 export default function Modal({ data }: Props): ReactElement {
   const [open, setOpen] = useState<boolean>(false);
+  const [show, setShow] = useState(false);
 
   const [gender, setGender] = useState<null | String>(
     data.genderDescription.toLowerCase()
   );
-  const [contactName, setContactName] = useState<null | String>(
-    data.contactName
-  );
+  const [contactName] = useState<null | String>(data.contactName);
   const [fullName, setFullName] = useState<null | String>("Caroline Conway");
   const [preferredName, setPreferredName] = useState<null | String>(
     data.contactName.split(" ")[0]
@@ -197,17 +200,28 @@ export default function Modal({ data }: Props): ReactElement {
                   }}
                   fullWidth
                 />
-                <TextField
-                  autoFocus
-                  label="Social Security Number"
-                  margin="dense"
-                  id="social"
-                  defaultValue={userState.social}
+                <InputLabel id="select-label">
+                  Social Security Number
+                </InputLabel>
+                <Input
+                  id="outlined-adornment-password"
+                  type={show ? "text" : "password"}
+                  value={social}
                   onChange={(e): void => {
                     setSocial(e.target.value);
                   }}
-                  type="password"
                   fullWidth
+                  endAdornment={
+                    <InputAdornment position="end">
+                      <IconButton
+                        aria-label="toggle social visibility"
+                        onClick={() => setShow(!show)}
+                        edge="end"
+                      >
+                        {show ? <Visibility /> : <VisibilityOff />}
+                      </IconButton>
+                    </InputAdornment>
+                  }
                 />
                 <TextField
                   autoFocus
