@@ -7,6 +7,6 @@
   margin-top: -15px;
   border: solid 1px rgba(25, 4, 211, 0.397);
   width: 78px;
-  align-self: left;
-  position: absolute;
+  margin-left: 0px;
+  position: relative !important;
 }
