@@ -2,6 +2,11 @@
   left: 50%;
   position: absolute;
   transform: translateX(-50%);
+  text-align: center;
+}
+.center-message {
+  text-align: center;
+  margin-bottom: 20px;
 }
 #form-dialog-title {
   height: 30px;

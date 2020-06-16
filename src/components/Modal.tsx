@@ -137,9 +137,16 @@ export default function Modal({ data }: Props): ReactElement {
 
   return (
     <div className="center-btn">
+      <p className="center-message">
+        {" "}
+        Hello User! We have your information stored in our app. Go ahead and
+        click the 'See Details' button to confirm if it's correct. Otherwise,
+        please update the information.
+      </p>
+
       <a style={{ textDecoration: "none" }} href="#top">
         <Button variant="outlined" onClick={handleOpen}>
-          Edit Details
+          See Details
         </Button>
       </a>
       <Dialog
