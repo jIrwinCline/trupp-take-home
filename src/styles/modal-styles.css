@@ -9,9 +9,6 @@
 #form-dialog-title * {
   font-size: 25px;
 }
-/* .MuiDialog-root {
-  min-width: 900px !important;
-} */
 .input-container {
   font-size: 19px !important;
   max-width: 90%;
@@ -29,6 +26,7 @@
 }
 .MuiDialogContent-root {
   overflow-x: hidden;
+  max-height: 500px;
 }
 
 .MuiDialogContent-root::-webkit-scrollbar {
@@ -36,9 +34,6 @@
 }
 .half-field-container {
   width: 1350px !important;
-  /* text-align: center; */
-  /* display: flex !important; */
-  /* justify-self: space-between !important; */
 }
 #address-select {
   min-width: 650px !important;

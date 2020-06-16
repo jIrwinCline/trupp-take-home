@@ -1,8 +1,6 @@
 import React, { ReactElement, useState } from "react";
 import "../styles/modal-styles.css";
 
-import { EMPLOYEEDETAILS_MOCK as data } from "../data/mock";
-
 //MUI
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
@@ -24,10 +22,18 @@ import FormLabel from "@material-ui/core/FormLabel";
 //Components
 import SectionTitle from "./SectionTitle";
 
-interface Props {}
+//Interfaces
+import { EmployeeDetails } from "../data/mock";
 
-export default function Modal({}: Props): ReactElement {
+interface Props {
+  data: EmployeeDetails;
+}
+
+export default function Modal({ data }: Props): ReactElement {
   const [open, setOpen] = React.useState(false);
+  const [gender, setGender] = React.useState(
+    data.genderDescription.toLowerCase()
+  );
 
   const handleOpen = (): void => {
     setOpen(true);
@@ -50,7 +56,7 @@ export default function Modal({}: Props): ReactElement {
         aria-labelledby="form-dialog-title"
         className="modal-container"
       >
-        <DialogTitle id="form-dialog-title">Carrie Conway</DialogTitle>
+        <DialogTitle id="form-dialog-title">{data.contactName}</DialogTitle>
         <MuiDivider />
         <DialogContent>
           <SectionTitle text="Basic Info" upcase />
@@ -61,9 +67,10 @@ export default function Modal({}: Props): ReactElement {
                 <TextField
                   autoFocus
                   label="Full Name"
+                  defaultValue={"Caroline Conway"}
                   margin="dense"
-                  id="fullName"
-                  type="email"
+                  id="contactName"
+                  type="name"
                   fullWidth
                 />
                 <TextField
@@ -71,23 +78,30 @@ export default function Modal({}: Props): ReactElement {
                   label="Preferred First Name"
                   margin="dense"
                   id="firstName"
-                  type="email"
+                  type="name"
+                  defaultValue={data.contactName.split(" ")[0]}
                   fullWidth
                 />
                 <TextField
                   autoFocus
                   label="Social Security Number"
                   margin="dense"
-                  id="name"
-                  type="email"
+                  id="ssn"
+                  defaultValue={data.maskedSocialSecurity}
+                  type="password"
                   fullWidth
                 />
                 <TextField
                   autoFocus
                   label="Birthday"
                   margin="dense"
-                  id="name"
-                  type="email"
+                  id="text"
+                  defaultValue={data.dateOfBirth.toLocaleString("default", {
+                    month: "long",
+                    day: "numeric",
+                    year: "numeric",
+                  })}
+                  type="text"
                   fullWidth
                 />
               </div>
@@ -103,15 +117,16 @@ export default function Modal({}: Props): ReactElement {
                   autoFocus
                   label="Street Address 1"
                   margin="dense"
-                  id="name"
-                  type="email"
+                  defaultValue={data.streetAddress.addressLine1}
+                  id="address1"
+                  type="text"
                   fullWidth
                 />
                 <TextField
                   autoFocus
                   label="Street Address 2"
                   margin="dense"
-                  id="name"
+                  id="address2"
                   type="email"
                   fullWidth
                 />
@@ -119,8 +134,9 @@ export default function Modal({}: Props): ReactElement {
                   autoFocus
                   label="City"
                   margin="dense"
-                  id="name"
-                  type="email"
+                  id="city"
+                  defaultValue={data.streetAddress.city}
+                  type="text"
                   fullWidth
                 />
 
@@ -128,16 +144,18 @@ export default function Modal({}: Props): ReactElement {
                   autoFocus
                   label="State"
                   margin="dense"
-                  id="name"
-                  type="email"
+                  defaultValue={data.streetAddress.state}
+                  id="state"
+                  type="text"
                   className="half-field-left"
                 />
                 <TextField
                   autoFocus
                   label="Zip Code"
                   margin="dense"
-                  id="name"
-                  type="email"
+                  id="zip"
+                  defaultValue={data.streetAddress.zip}
+                  type="text"
                   className="half-field-right"
                 />
 
@@ -176,6 +194,7 @@ export default function Modal({}: Props): ReactElement {
                         margin="dense"
                         id="email"
                         type="email"
+                        defaultValue={data.personalEmail}
                         className="half-field-left"
                       />
                     </Grid>
@@ -183,7 +202,7 @@ export default function Modal({}: Props): ReactElement {
                       <FormControl className="half-field-right">
                         <InputLabel id="select-label"></InputLabel>
                         <Select
-                          id="address-select"
+                          id="email-select"
                           value={"Personal"}
                           // onChange={handleChange}
                           // input={<BootstrapInput />}
@@ -202,8 +221,9 @@ export default function Modal({}: Props): ReactElement {
                         // autoFocus
                         label="Phone"
                         margin="dense"
-                        id="email"
-                        type="email"
+                        id="phone"
+                        type="text"
+                        defaultValue={data.mobilePhone}
                         className="half-field-left"
                       />
                     </Grid>
@@ -211,17 +231,13 @@ export default function Modal({}: Props): ReactElement {
                       <FormControl className="half-field-right">
                         <InputLabel id="select-label"></InputLabel>
                         <Select
-                          id="address-select"
+                          id="phone-select"
                           value={addressType}
                           // onChange={handleChange}
                           // input={<BootstrapInput />}
                         >
-                          <MenuItem value={"Street Address"}>
-                            Street Address
-                          </MenuItem>
-                          <MenuItem value={"Apartment Address"}>
-                            Apartment Address
-                          </MenuItem>
+                          <MenuItem value={"Street Address"}>Mobile</MenuItem>
+                          <MenuItem value={"Apartment Address"}>Home</MenuItem>
                         </Select>
                       </FormControl>
                     </Grid>
@@ -243,7 +259,7 @@ export default function Modal({}: Props): ReactElement {
                   <RadioGroup
                     aria-label="gender"
                     name="gender1"
-                    value={null}
+                    value={gender}
                     // onChange={handleChange}
                   >
                     <FormControlLabel

@@ -1,4 +1,4 @@
-interface EmployeeDetails {
+export interface EmployeeDetails {
   contactName: String;
   dateOfBirth: Date;
   maskedSocialSecurity: String;
