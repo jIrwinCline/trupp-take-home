@@ -1,7 +1,11 @@
 .center-btn {
-  margin-left: 50%;
-  transform: translateX(-12%);
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%);
 }
 #form-dialog-title {
   height: 24px;
+}
+.MuiDialog-root {
+  min-width: 900px !important;
 }
